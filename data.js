@@ -1,0 +1,72 @@
+// ==========================================
+// FILE PUSAT DATA UNDANGAN DIGITAL
+// Tema: Biru Mewah & Elegan (Navy & Gold)
+// ==========================================
+
+const dataUndangan = {
+    umum: {
+        judulWeb: "The Wedding of Okik & Nurul",
+        deskripsiWeb: "Undangan Pernikahan Okik & Nurul",
+        audioLatar: "./asset/lagu.mp3", 
+        putarOtomatis: true
+    },
+    kutipan: {
+        teks: "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang.",
+        sumber: "QS. Ar-Rum: 21"
+    },
+    mempelai: {
+        pria: {
+            namaLengkap: "Okik Aris Setiawan, S.T.",
+            namaPanggilan: "Okik",
+            namaAyah: "Bpk. Heri Susanto",
+            namaIbu: "Ibu Nanik",
+            foto: "./asset/foto_pria.jpeg",
+            instagram: "https://instagram.com/nuristiana010" 
+        },
+        wanita: {
+            namaLengkap: "Nurul Dwi Indah Istiana, S.M.",
+            namaPanggilan: "Nurul",
+            namaAyah: "Bpk. Ekhwan Sunarto",
+            namaIbu: "Ibu Hariyatun",
+            foto: "./asset/foto_wanita.jpeg",
+            instagram: "https://instagram.com/nuristiana010" 
+        }
+    },
+    acara: {
+        akad: {
+            namaAcara: "Akad Nikah",
+            hariTanggal: "Minggu, 02 Agustus 2026",
+            tanggalCountdown: "2026-08-02T08:00:00", 
+            waktu: "08:00 WIB - 10:00 WIB",
+            tempat: "Kediaman Mempelai Wanita",
+            alamatLengkap: "Dsn. Balongrejo, Ds. Balonggebang, RT 30, RW 10, Kec. Gondang, Kab. Nganjuk",
+            linkGoogleMaps: "https://goo.gl/maps/1Dvg7RLgNhKyL9bs8?g_st=ac"
+        },
+        resepsi: {
+            namaAcara: "Resepsi Pernikahan",
+            hariTanggal: "Minggu, 02 Agustus 2026",
+            waktu: "11:00 WIB - Selesai",
+            tempat: "Kediaman Mempelai Wanita",
+            alamatLengkap: "Dsn. Balongrejo, Ds. Balonggebang, RT 30, RW 10, Kec. Gondang, Kab. Nganjuk",
+            linkGoogleMaps: "https://goo.gl/maps/1Dvg7RLgNhKyL9bs8?g_st=ac"
+        }
+    },
+    galeri: [
+        "./asset/galeri1.jpg", 
+        "./asset/galeri2.jpg", 
+        "./asset/galeri3.jpg",
+        "./asset/galeri4.jpg"
+    ],
+    hadiahDigital: {
+        teksPengantar: "Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Jika memberi adalah ungkapan tanda kasih Anda, Anda dapat memberi kado secara cashless.",
+        rekening: [
+            { bank: "BCA", atasNama: "Okik Aris Setiawan", nomorRekening: "1234567890" },
+            { bank: "Bank Mandiri", atasNama: "Nurul Dwi Indah", nomorRekening: "0987654321" }
+        ]
+    },
+    penutup: {
+        teksBawah: "Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.",
+        salam: "Wassalamu'alaikum Warahmatullahi Wabarakatuh",
+        terimaKasih: "Kami yang berbahagia,"
+    }
+};
