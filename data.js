@@ -7,7 +7,7 @@ const dataUndangan = {
     umum: {
         judulWeb: "The Wedding of Okik & Nurul",
         deskripsiWeb: "Undangan Pernikahan Okik & Nurul",
-        audioLatar: "./asset/lagu.mp3", 
+        audioLatar: "./asset/lagu.MP3", 
         putarOtomatis: true
     },
     kutipan: {
