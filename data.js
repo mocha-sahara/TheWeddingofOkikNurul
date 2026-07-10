@@ -6,7 +6,7 @@ const dataUndangan = {
     umum: {
         judulWeb: "The Wedding of Okik & Nurul",
         deskripsiWeb: "Undangan Pernikahan Okik & Nurul",
-        audioLatar: "./asset/lagu.mp3", 
+        audioLatar: "./asset/lagu.MP3", 
         putarOtomatis: true
     },
     kutipan: {
@@ -51,10 +51,9 @@ const dataUndangan = {
         }
     },
     galeri: [
-        "./asset/galeri1.jpg", 
-        "./asset/galeri2.jpg", 
-        "./asset/galeri3.jpg",
-        "./asset/galeri4.jpg"
+        "./asset/bg2.jpeg", 
+        "./asset/bg3.jpeg", 
+       
     ],
     hadiahDigital: {
         teksPengantar: "Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Jika memberi adalah ungkapan tanda kasih Anda, Anda dapat memberi kado secara cashless.",
