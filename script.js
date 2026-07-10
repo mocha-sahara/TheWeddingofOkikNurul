@@ -1,3 +1,7 @@
+// ==========================================
+// CORE INTERACTION SCRIPT - ROYAL JAVANESE
+// ==========================================
+
 function initData() {
     try {
         const d = dataUndangan; 
@@ -6,38 +10,49 @@ function initData() {
         setText('txt-kutipan', d.kutipan.teks);
         setText('txt-sumber', d.kutipan.sumber);
         
-        // Mempelai
+        // Mempelai Pria
         setText('nama-pria', d.mempelai.pria.namaLengkap);
         setText('ortu-pria', `Putra dari\n${d.mempelai.pria.namaAyah} & ${d.mempelai.pria.namaIbu}`);
         document.getElementById('foto-pria').src = d.mempelai.pria.foto;
         document.getElementById('ig-pria').href = d.mempelai.pria.instagram;
 
+        // Mempelai Wanita
         setText('nama-wanita', d.mempelai.wanita.namaLengkap);
         setText('ortu-wanita', `Putri dari\n${d.mempelai.wanita.namaAyah} & ${d.mempelai.wanita.namaIbu}`);
         document.getElementById('foto-wanita').src = d.mempelai.wanita.foto;
         document.getElementById('ig-wanita').href = d.mempelai.wanita.instagram;
 
-        // Injeksi Acara ke 2 Kubah (Arch) Terpisah dengan efek 2 lapis
+        // Injeksi Teks Hero Motion Area
+        setText('hero-pria', d.mempelai.pria.namaPanggilan);
+        setText('hero-wanita', d.mempelai.wanita.namaPanggilan);
+
+        // Injeksi Rangkaian Acara (Kubah Terpisah, 2 Lapis)
         const acaraList = document.getElementById('acara-list-inject');
         if (acaraList) {
             acaraList.innerHTML = ""; 
             Object.keys(d.acara).forEach((key) => {
                 const acr = d.acara[key];
                 if (acr.namaAcara) {
-                    const iconTop = key === 'akad' ? 'fa-ring' : 'fa-house-chimney';
+                    const iconTop = key === 'akad' ? 'fa-ring' : 'fa-handshake-angle';
                     
                     let blockHTML = `
-                        <div class="arch-card-double-layer">
-                            <div class="arch-bg-pattern"></div>
-                            <div class="arch-content">
-                                <div class="icon-ring"><i class="fa-solid ${iconTop}"></i></div>
-                                <h2 class="cursive-title-blue mt-10">${acr.namaAcara}</h2>
-                                <p class="event-date font-serif mt-20">${acr.hariTanggal.replace(/\n/g, '<br>')}</p>
-                                <p class="event-time font-body mt-10">${acr.waktu}</p>
+                        <div class="arch-card-double-layer dyn-anim fade-up">
+                            <div class="arch-inner-pattern-cover"></div>
+                            <div class="arch-main-content">
+                                <div class="icon-marriage-center"><i class="fa-solid ${iconTop}"></i></div>
+                                <h2 class="cursive-title-blue font-latin mt-10">${acr.namaAcara}</h2>
+                                <p class="event-date font-klasik mt-25">${acr.hariTanggal.replace(/\n/g, '<br>')}</p>
+                                <p class="event-time font-klasik mt-10">${acr.waktu}</p>
                                 
-                                <h3 class="venue-title font-serif mt-20">${acr.tempat}</h3>
-                                <p class="venue-address font-body mt-5">${acr.alamatLengkap}</p>
-                                <a href="${acr.linkGoogleMaps}" target="_blank" class="btn-slate-pill mt-20">
+                                <div class="horizontal-line-decor mt-20">
+                                    <div class="thin-line"></div>
+                                    <i class="fa-solid fa-house decor-mid-icon"></i>
+                                    <div class="thin-line"></div>
+                                </div>
+                                
+                                <h3 class="venue-title font-klasik mt-20">${acr.tempat}</h3>
+                                <p class="venue-address font-klasik mt-5">${acr.alamatLengkap}</p>
+                                <a href="${acr.linkGoogleMaps}" target="_blank" class="btn-slate-pill mt-25">
                                     <i class="fa-solid fa-location-dot"></i> Google Maps
                                 </a>
                             </div>
@@ -47,17 +62,17 @@ function initData() {
             });
         }
 
-        // Galeri Auto-Scroll
+        // Injeksi Galeri Marquee Double Loop Element
         const track = document.getElementById('galeri-track');
         if(track && d.galeri.length > 0) {
             track.innerHTML = "";
-            const doubleGallery = [...d.galeri, ...d.galeri]; // Gandakan untuk infinity loop
+            const doubleGallery = [...d.galeri, ...d.galeri]; 
             doubleGallery.forEach((src) => {
-                track.innerHTML += `<img src="${src}" alt="Gallery">`;
+                track.innerHTML += `<img src="${src}" alt="Gallery Marquee Element">`;
             });
         }
 
-        // Rekening Gift
+        // Injeksi Kado Cashless
         setText('txt-pengantar-kado', d.hadiahDigital.teksPengantar);
         const rekList = document.getElementById('rekening-list');
         if(rekList) {
@@ -65,27 +80,27 @@ function initData() {
             d.hadiahDigital.rekening.forEach((rek, i) => {
                 const id = `rek-${i}`;
                 rekList.innerHTML += `
-                    <div class="rek-box">
-                        <strong class="bank-name">${rek.bank}</strong>
-                        <span id="${id}" class="rek-number">${rek.nomorRekening}</span>
-                        <small class="rek-holder">a.n ${rek.atasNama}</small>
-                        <button class="btn-copy" onclick="copyRekening('${id}', this)"><i class="fa-regular fa-copy"></i> Salin</button>
+                    <div class="rek-box-luxury">
+                        <strong class="bank-title font-klasik">${rek.bank}</strong>
+                        <span id="${id}" class="rek-number-digits">${rek.nomorRekening}</span>
+                        <small class="rek-holder-name font-klasik">a.n ${rek.atasNama}</small>
+                        <button class="btn-copy-action font-klasik" onclick="copyRekening('${id}', this)"><i class="fa-regular fa-copy"></i> Salin Rekening</button>
                     </div>`;
             });
         }
 
-        // Penutup
+        // Injeksi Footer Penutup
         setText('txt-terimakasih', d.penutup.teksBawah);
-        setText('txt-salam-tutup', d.penutup.terimaKasih);
+        setText('txt-salam-tutup', d.penutup.salam);
 
-        // Tamu Undangan
+        // Membaca URL Tamu Dinamis
         const urlParams = new URLSearchParams(window.location.search);
         const tamu = urlParams.get('to') || urlParams.get('u');
         if (tamu) setText('guest-name', tamu);
 
-        startCountdown(d.acara.akad.tanggalCountdown);
+        runCountdownSystem(d.acara.akad.tanggalCountdown);
 
-    } catch(e) { console.error("Error data:", e); }
+    } catch(e) { console.error("Error initialization:", e); }
 }
 
 function bukaUndangan() {
@@ -95,7 +110,7 @@ function bukaUndangan() {
     const video = document.getElementById('intro-video');
     const btnMusic = document.getElementById('btn-music-toggle');
     
-    audio.play().catch(e => console.log("Audio diblokir browser."));
+    audio.play().catch(e => console.log("Backsound autoplay block solved."));
     btnMusic.style.display = 'flex';
 
     coverScreen.style.transform = 'translateY(-100vh)';
@@ -104,13 +119,15 @@ function bukaUndangan() {
     setTimeout(() => {
         coverScreen.style.display = 'none';
         mainContent.style.display = 'block';
-        video.play().catch(e => console.log("Video diblokir browser."));
+        video.play().catch(e => console.log("Motion player active."));
         
         setTimeout(() => {
             mainContent.style.opacity = '1';
             window.scrollTo(0, 0); 
             
-            // DELAY 7 DETIK UNTUK TEKS HERO
+            initIntersectionObserverAnimations();
+            
+            // DELAY UTAMA 7 DETIK UNTUK EMERGE HERO TEXT
             setTimeout(() => {
                 const heroTextBubble = document.getElementById('hero-text-bubble');
                 if(heroTextBubble) heroTextBubble.classList.add('show-hero');
@@ -118,6 +135,18 @@ function bukaUndangan() {
 
         }, 50);
     }, 800);
+}
+
+function initIntersectionObserverAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.dyn-anim').forEach(el => observer.observe(el));
 }
 
 function toggleMusic() {
@@ -137,15 +166,15 @@ function copyRekening(id, btn) {
     navigator.clipboard.writeText(text).then(() => {
         const ogText = btn.innerHTML;
         btn.innerHTML = '<i class="fa-solid fa-check"></i> Disalin';
-        btn.style.backgroundColor = '#1c2a35';
+        btn.style.background = 'var(--slate-dark)';
         setTimeout(() => { 
             btn.innerHTML = ogText; 
-            btn.style.backgroundColor = 'var(--blue-slate)';
+            btn.style.background = 'var(--slate-blue)';
         }, 2000);
     });
 }
 
-function startCountdown(targetString) {
+function runCountdownSystem(targetString) {
     const target = new Date(targetString).getTime();
     setInterval(function() {
         const distance = target - new Date().getTime();
@@ -163,7 +192,7 @@ function kirimUcapan() {
     const nama = document.getElementById('nama-tamu').value;
     const hadir = document.getElementById('konfirmasi-hadir').value;
     const pesan = document.getElementById('pesan-tamu').value;
-    if (!nama || !pesan || !hadir) { alert('Harap lengkapi form ucapan!'); return; }
+    if (!nama || !pesan || !hadir) { alert('Harap isi kelengkapan ucapan anda!'); return; }
 
     const container = document.getElementById('ucapan-list');
     const d = new Date();
@@ -172,8 +201,8 @@ function kirimUcapan() {
     const div = document.createElement('div');
     div.className = 'ucapan-card-item';
     div.innerHTML = `
-        <div class="user-name-title font-body">${nama} <span class="rsvp-badge">${hadir}</span></div>
-        <p class="user-msg-text font-body mt-5">${pesan}</p>
+        <div class="user-name-title font-klasik">${nama} <span class="rsvp-badge font-klasik">${hadir}</span></div>
+        <p class="user-msg-text font-klasik mt-5">${pesan}</p>
         <span class="meta-date mt-5">${dateStr}</span>
     `;
     

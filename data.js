@@ -10,8 +10,8 @@ const dataUndangan = {
         putarOtomatis: true
     },
     kutipan: {
-        teks: '"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."',
-        sumber: "- QS. Ar-Rum : 21 -"
+        teks: "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.",
+        sumber: "- QS. Ar-Rum: 21 -"
     },
     mempelai: {
         pria: {
@@ -34,7 +34,7 @@ const dataUndangan = {
     acara: {
         akad: {
             namaAcara: "Akad Nikah",
-            hariTanggal: "MINGGU\n02 AGUSTUS 2026",
+            hariTanggal: "Minggu\n02 Agustus 2026",
             tanggalCountdown: "2026-08-02T08:00:00", 
             waktu: "08:00 WIB - 10:00 WIB",
             tempat: "Kediaman Mempelai Wanita",
@@ -43,7 +43,7 @@ const dataUndangan = {
         },
         resepsi: {
             namaAcara: "Resepsi Pernikahan",
-            hariTanggal: "MINGGU\n02 AGUSTUS 2026",
+            hariTanggal: "Minggu\n02 Agustus 2026",
             waktu: "11:00 WIB - Selesai",
             tempat: "Kediaman Mempelai Wanita",
             alamatLengkap: "Dsn. Balongrejo, Ds. Balonggebang, RT 30, RW 10, Kec. Gondang, Kab. Nganjuk",
@@ -64,7 +64,7 @@ const dataUndangan = {
         ]
     },
     penutup: {
-        teksBawah: "Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.",
+        teksBawah: "Suatu kebahagiaan & kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i, berkenan hadir dan memberikan do'a restu kepada kami",
         salam: "Wassalamu'alaikum Warahmatullahi Wabarakatuh",
         terimaKasih: "Kami yang berbahagia,"
     }

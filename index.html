@@ -3,174 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title id="page-title">Undangan Pernikahan Okik & Nurul</title>
+    <title>The Wedding of Okik & Nurul</title>
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts Premium: Great Vibes (Latin Cursive/Script), Cormorant Garamond (Elegant Serif) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="style.css">
+    <script src="data.js"></script>
 </head>
 <body>
 
+    <!-- Desktop Layer Background Pattern -->
     <div class="desktop-bg-layer"></div>
 
+    <!-- MAIN APP CONTAINER (MOBILE FIRST) -->
     <div id="app-container">
 
-        <!-- LAYER VIDEO INTRO (Tetap di belakang, tidak ikut scroll) -->
+        <!-- LAYER 1: VIDEO BACKGROUND (FIXED) -->
         <div class="fixed-video-bg">
+            <div class="video-overlay-tint"></div>
             <video id="intro-video" muted loop playsinline preload="auto">
                 <source src="./asset/motion.mp4" type="video/mp4">
             </video>
         </div>
 
-        <!-- 1. COVER SCREEN -->
+        <!-- ==========================================
+             1. COVER SCREEN
+             ========================================== -->
         <div id="cover-screen">
             <div class="cover-bg"></div>
             <div class="cover-content">
                 <div class="cover-top animate-fade-down">
-                    <div class="initials-box">
-                        <span class="initial-text">O</span>
-                        <div class="vertical-line"></div>
-                        <span class="initial-text">N</span>
+                    <div class="cover-initials font-latin">
+                        <span class="initial-letter">O</span>
+                        <span class="initial-divider">|</span>
+                        <span class="initial-letter">N</span>
                     </div>
-                    <p class="title-wedding-sub mt-20">The Wedding of</p>
-                    <h1 class="couple-names-serif">Okik & Nurul</h1>
+                    <p class="title-wedding font-klasik mt-20">THE WEDDING OF</p>
+                    <h1 class="couple-names-cover font-latin mt-10">Okik & Nurul</h1>
                 </div>
 
                 <div class="cover-bottom animate-fade-up">
-                    <div class="guest-box">
-                        <p class="kepada">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-                        <h2 id="guest-name">Nama Tamu</h2>
-                        <button id="btn-buka" onclick="bukaUndangan()">
-                            <i class="fa-regular fa-envelope"></i> BUKA UNDANGAN
+                    <div class="guest-box-thin">
+                        <p class="kepada font-klasik">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+                        <h2 id="guest-name" class="font-klasik">Nama Tamu</h2>
+                        <button id="btn-buka" class="font-klasik" onclick="bukaUndangan()">
+                            <i class="fa-regular fa-envelope-open"></i> BUKA UNDANGAN
                         </button>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- ==========================================
+             2. MAIN APPLICATION CONTENT
+             ========================================== -->
         <main id="main-content" style="display: none; opacity: 0;">
             
-            <!-- 2. STICKY HERO TEXT (Menetap di atas video) -->
-            <section class="hero-text-fixed">
+            <!-- STICKY HERO TEXT OVERLAY -->
+            <section class="hero-section-fixed">
                 <div id="hero-text-bubble" class="hidden-hero">
-                    <p class="the-wedding-sub-hero animate-stagger seq-1">The Wedding Of</p>
-                    <h1 class="couple-names-hero font-serif animate-stagger seq-2" id="hero-pria">Okik</h1>
-                    <h1 class="ampersand-hero font-serif animate-stagger seq-3">&</h1>
-                    <h1 class="couple-names-hero font-serif animate-stagger seq-4" id="hero-wanita">Nurul</h1>
-                    <p class="tanggal-hero animate-stagger seq-5">02 . 08 . 2026</p>
+                    <p class="the-wedding font-klasik animate-stagger seq-1">The Wedding Of</p>
+                    <h1 class="couple-names-hero font-latin animate-stagger seq-2" id="hero-pria">Okik</h1>
+                    <h1 class="dan font-latin animate-stagger seq-3">&</h1>
+                    <h1 class="couple-names-hero font-latin animate-stagger seq-4" id="hero-wanita">Nurul</h1>
+                    <p class="tanggal-hero font-klasik animate-stagger seq-5">02 . 08 . 2026</p>
                 </div>
             </section>
 
-            <!-- 3. SOLID SCROLLING BODY -->
+            <!-- SOLID SCROLLING LAYER CONTENT -->
             <div class="solid-content-body">
                 
-                <!-- WRAPPER BG1 (Untuk Kutipan & Profil) -->
-                <div class="bg1-wrapper">
-                    <!-- SECTION KUTIPAN (FLAT, TANPA CARD) -->
-                    <section class="section-quote relative">
-                        <img src="./asset/bunga.webp" class="bunga-corner pos-tl" alt="Bunga">
+                <!-- LAYER 3: KUTIPAN & AYAT (BACKGROUND bg1.jpeg FIT HP) -->
+                <div class="bg1-slide-wrapper">
+                    <section class="section-flat-quote relative dyn-anim fade-up">
+                        <img src="./asset/bunga.webp" class="bunga-corner-floating pos-tl" alt="Bunga">
                         <div class="section-content text-center">
-                            <div class="initials-box-small">
+                            <div class="initials-box-small font-latin">
                                 <span>O</span><div class="vertical-line-small"></div><span>N</span>
                             </div>
-                            <h2 class="cursive-title mt-25">We Found Love</h2>
-                            <p id="txt-kutipan" class="text-quote mt-25"></p>
-                            <p id="txt-sumber" class="font-body mt-15 text-sumber"></p>
+                            <h2 class="cursive-title font-latin mt-20">We Found Love</h2>
+                            <p id="txt-kutipan" class="text-quote font-klasik mt-20"></p>
+                            <p id="txt-sumber" class="font-klasik text-gold mt-15"></p>
                         </div>
                     </section>
 
-                    <!-- SECTION PROFIL (CARD COKLAT SEMI TRANSPARAN) -->
-                    <section class="section-profile">
-                        <div class="brown-glass-card">
-                            <h2 class="section-title-serif mb-20 text-blue">We Are Getting Married!</h2>
-                            <p class="text-salam font-body mb-30 text-blue">Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah semoga ridho-Mu tercurah mengiringi pernikahan kami:</p>
+                    <!-- ATTACHED PHOTO SLIDE (bg2.jpeg) -->
+                    <section class="section-attached-photo dyn-anim zoom-in">
+                        <img src="./asset/bg2.jpeg" alt="Okik & Nurul" class="attached-img">
+                        <img src="./asset/bunga.webp" class="bunga-corner-floating pos-br invert-x" alt="Bunga">
+                    </section>
+
+                    <!-- LAYER 4: PROFIL PENGANTIN (CARD COKLAT HANGAT TRANSPARAN) -->
+                    <section class="section-profile padding-horizontal pt-30 pb-50 relative dyn-anim fade-up">
+                        <div class="tan-glassmorphism-card">
+                            <h2 class="font-latin text-gold-calm title-large">We Are Getting Married!</h2>
+                            <p class="text-salam font-klasik mt-15 mb-30">Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah semoga ridho-Mu tercurah mengiringi pernikahan kami:</p>
                             
                             <!-- Pria -->
                             <div class="profile-block">
-                                <div class="oval-frame"><img id="foto-pria" src="" alt="Mempelai Pria"></div>
-                                <h3 class="nama-panggilan-serif">Okik</h3>
-                                <h4 id="nama-pria" class="nama-lengkap font-serif text-blue"></h4>
-                                <p id="ortu-pria" class="ortu-info font-body text-blue"></p>
-                                <a id="ig-pria" href="#" target="_blank" class="btn-slate-pill mt-10"><i class="fa-brands fa-instagram"></i> @mempelai</a>
+                                <div class="oval-frame-luxury"><img id="foto-pria" src="" alt="Okik Aris Setiawan"></div>
+                                <h3 class="nama-panggilan-latin font-latin">Okik</h3>
+                                <h4 id="nama-pria" class="nama-lengkap font-klasik mt-5"></h4>
+                                <p id="ortu-pria" class="ortu font-klasik"></p>
+                                <a id="ig-pria" href="#" target="_blank" class="btn-slate-pill mt-15"><i class="fa-brands fa-instagram"></i> Instagram</a>
                             </div>
                             
-                            <div class="divider-ampersand"><h1 class="ampersand-mid text-blue">&</h1></div>
+                            <div class="divider-ampersand"><h1 class="ampersand-mid font-latin text-gold-calm">&amp;</h1></div>
                             
                             <!-- Wanita -->
                             <div class="profile-block">
-                                <div class="oval-frame"><img id="foto-wanita" src="" alt="Mempelai Wanita"></div>
-                                <h3 class="nama-panggilan-serif">Nurul</h3>
-                                <h4 id="nama-wanita" class="nama-lengkap font-serif text-blue"></h4>
-                                <p id="ortu-wanita" class="ortu-info font-body text-blue"></p>
-                                <a id="ig-wanita" href="#" target="_blank" class="btn-slate-pill mt-10"><i class="fa-brands fa-instagram"></i> @mempelai</a>
+                                <div class="oval-frame-luxury"><img id="foto-wanita" src="" alt="Nurul Dwi Indah"></div>
+                                <h3 class="nama-panggilan-latin font-latin">Nurul</h3>
+                                <h4 id="nama-wanita" class="nama-lengkap font-klasik mt-5"></h4>
+                                <p id="ortu-wanita" class="ortu font-klasik"></p>
+                                <a id="ig-wanita" href="#" target="_blank" class="btn-slate-pill mt-15"><i class="fa-brands fa-instagram"></i> Instagram</a>
                             </div>
                         </div>
                     </section>
                 </div>
-                
-                <!-- FOTO FULL TENGAH -->
-                <section class="section-full-photo">
-                    <img src="./asset/bg2.jpeg" alt="Okik & Nurul">
-                    <img src="./asset/bunga.webp" class="bunga-corner pos-br invert-x" alt="Bunga">
-                </section>
 
-                <!-- SECTION GALERI -->
-                <section class="gallery-marquee-area pb-40" style="background-image: url('./asset/cover.png'); background-size: 350px;">
-                    <div class="text-center pt-30 pb-20"><h2 class="section-title-serif text-blue">Our Gallery</h2></div>
+                <!-- LAYER 5: GALERI AUTO-SCROLL CAROUSEL -->
+                <section class="gallery-marquee-section pt-40 pb-40 dyn-anim fade-up">
+                    <div class="text-center mb-25"><h2 class="font-latin text-slate title-section">Our Gallery</h2></div>
                     <div class="slider-overflow-hidden">
                         <div class="slider-track-marquee" id="galeri-track"></div>
                     </div>
                 </section>
 
-                <!-- SECTION COUNTDOWN -->
-                <section class="countdown-wrapper mt-30 padding-horizontal">
-                    <div class="section-content text-slate text-center">
-                        <h2 class="section-title-serif text-blue">Save The Date</h2>
+                <!-- LAYER 6: COUNTDOWN -->
+                <section class="countdown-section padding-horizontal pb-50 dyn-anim fade-up">
+                    <div class="luxury-white-card">
+                        <h2 class="font-latin text-gold-calm title-large">Save The Date</h2>
                         <div class="countdown-grid mt-25">
-                            <div class="cd-box"><span id="cd-hari">00</span><p>Days</p></div>
-                            <div class="cd-box"><span id="cd-jam">00</span><p>Hours</p></div>
-                            <div class="cd-box"><span id="cd-menit">00</span><p>Minutes</p></div>
-                            <div class="cd-box"><span id="cd-detik">00</span><p>Seconds</p></div>
+                            <div class="cd-box"><span id="cd-hari" class="font-klasik">00</span><p class="font-klasik">Days</p></div>
+                            <div class="cd-box"><span id="cd-jam" class="font-klasik">00</span><p class="font-klasik">Hours</p></div>
+                            <div class="cd-box"><span id="cd-menit" class="font-klasik">00</span><p class="font-klasik">Minutes</p></div>
+                            <div class="cd-box"><span id="cd-detik" class="font-klasik">00</span><p class="font-klasik">Seconds</p></div>
                         </div>
-                        <button class="btn-slate-outline mt-30"><i class="fa-regular fa-bookmark"></i> Add to Calendar</button>
+                        <button class="btn-gold-outline mt-30 font-klasik"><i class="fa-regular fa-bookmark"></i> Add to Calendar</button>
                     </div>
                 </section>
 
-                <!-- SECTION ACARA (BG KAWUNG & 2 KUBAH TERPISAH DGN EFEK 2 LAPIS) -->
+                <!-- LAYER 7: ACARA (BG KAWUNG, KUBAH 2 LAPIS, COVER.PNG INSIDE) -->
                 <section class="section-acara-kawung" style="background-image: url('./asset/kawung.jpeg');">
                     <div id="acara-list-inject" class="w-100 flex-column-center">
-                        <!-- Diinjeksi oleh JS murni menjadi dua card terpisah -->
+                        <!-- Diinjeksi oleh JS -->
                     </div>
                 </section>
 
-                <!-- WRAPPER BAWAH (BACKGROUND COVER.PNG) -->
-                <div class="bottom-cover-wrapper" style="background-image: url('./asset/cover.png');">
+                <!-- LAYER 8: PARALLAX COVER BACKGROUND COMBINATION (MENGISI AREA KOSONG) -->
+                <div class="bottom-parallax-wrapper">
                     
-                    <!-- SECTION WEDDING GIFT -->
-                    <section class="section-gift pt-40 padding-horizontal">
-                        <div class="light-card text-center">
-                            <h2 class="section-title-serif mb-15 text-blue">Wedding Gift</h2>
-                            <p class="font-body text-small text-slate mb-20" id="txt-pengantar-kado"></p>
+                    <!-- WEDDING GIFT -->
+                    <section class="section-gift pt-50 padding-horizontal dyn-anim fade-up">
+                        <div class="luxury-white-card text-center">
+                            <h2 class="font-latin text-gold-calm title-large">Wedding Gift</h2>
+                            <p class="font-klasik text-slate mt-10 mb-25" id="txt-pengantar-kado"></p>
                             <div id="rekening-list"></div>
                         </div>
                     </section>
 
-                    <!-- SECTION DOA & MENGUNDANG -->
-                    <section class="section-doa-mengundang mt-30 padding-horizontal">
-                        <div class="slate-card mb-20 text-center">
-                            <h2 class="section-title-serif text-white mb-20">Doa Untuk Pengantin</h2>
-                            <p class="arabic-font">بَارَكَ اللهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ</p>
-                            <p class="transliteration mt-15">"Barakallahu laka wa baraka 'alaika wa jama'a bainakuma fii khoir"</p>
-                            <p class="translation mt-15">“Mudah-mudahan Allah memberkahi engkau dalam segala hal (yang baik) dan mempersatukan kamu berdua dalam kebaikan”</p>
+                    <!-- ORNAMEN BUNGA MELAYANG PENYEIMBANG KEKOSONGAN -->
+                    <div class="floating-divider-flower text-center mt-25 mb-25">
+                        <img src="./asset/bunga.webp" class="flower-float-item" alt="Floral Ornamen">
+                    </div>
+
+                    <!-- DOA UNTUK PENGANTIN & TURUT MENGUNDANG -->
+                    <section class="section-doa-mengundang padding-horizontal dyn-anim fade-up">
+                        <div class="slate-luxury-card text-center mb-30">
+                            <h2 class="font-latin text-gold-calm title-large">Doa Untuk Pengantin</h2>
+                            <p class="arabic-font mt-20">بَارَكَ اللهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ</p>
+                            <p class="transliteration font-klasik mt-15">"Barakallahu laka wa baraka 'alaika wa jama'a bainakuma fii khoir"</p>
+                            <p class="translation font-klasik mt-15">“Mudah-mudahan Allah memberkahi engkau dalam segala hal (yang baik) dan mempersatukan kamu berdua dalam kebaikan”</p>
                         </div>
 
-                        <div class="slate-card text-left">
-                            <h2 class="section-title-serif text-white text-center mb-20">Turut Mengundang</h2>
-                            <ul class="list-mengundang">
+                        <div class="floating-divider-flower text-center mt-25 mb-25">
+                            <img src="./asset/bunga.webp" class="flower-float-item-reverse" alt="Floral Ornamen">
+                        </div>
+
+                        <div class="slate-luxury-card text-left dyn-anim fade-up">
+                            <h2 class="font-latin text-gold-calm text-center title-large mb-25">Turut Mengundang</h2>
+                            <ul class="list-mengundang font-klasik">
                                 <li>- Ibu Sri Wahyuni Anindita</li>
                                 <li>- Bapak Abdul Karim Syahputra, S.H.</li>
                                 <li>- Keluarga Besar Ibu Lina Marlina Putri</li>
@@ -186,53 +203,61 @@
                         </div>
                     </section>
 
-                    <!-- SECTION RSVP & KOMENTAR -->
-                    <section class="mt-30 padding-horizontal pb-40">
-                         <div class="slate-card text-center">
-                            <h2 class="section-title-serif text-white mb-5">RSVP & Wishes</h2>
-                            <p class="font-body text-white size-small mb-20" style="opacity:0.8;">Ucapan Selamat, Doa, & Konfirmasi Kehadiran</p>
+                    <!-- RSVP & COMMENTS -->
+                    <section class="section-rsvp mt-40 padding-horizontal dyn-anim fade-up">
+                         <div class="slate-luxury-card text-center">
+                            <h2 class="font-latin text-gold-calm title-large mb-5">RSVP & Wishes</h2>
+                            <p class="font-klasik text-white size-small mb-25" style="opacity:0.85;">Ucapan Selamat, Doa, & Konfirmasi Kehadiran</p>
                             
-                            <div class="wishes-box">
-                                <div class="wishes-counter"><span id="count-ucapan">0</span> Ucapan</div>
+                            <div class="wishes-box-container">
+                                <div class="wishes-counter font-latin text-gold-calm"><span id="count-ucapan">0</span> Ucapan</div>
                                 <div class="wishes-form">
-                                    <input type="text" id="nama-tamu" class="input-form" placeholder="Nama Lengkap" required>
-                                    <select id="konfirmasi-hadir" class="input-form mt-10">
+                                    <input type="text" id="nama-tamu" class="input-element font-klasik" placeholder="Nama Lengkap Anda" required>
+                                    <select id="konfirmasi-hadir" class="input-element font-klasik mt-10">
                                         <option value="" disabled selected>Konfirmasi Kehadiran</option>
                                         <option value="Hadir">Hadir</option>
                                         <option value="Masih Ragu">Masih Ragu</option>
                                         <option value="Tidak Hadir">Tidak Hadir</option>
                                     </select>
-                                    <textarea id="pesan-tamu" class="input-form mt-10" rows="3" placeholder="Tulis Ucapan & Doa" required></textarea>
-                                    <button type="button" class="btn-submit-white mt-10" onclick="kirimUcapan()">Kirim Ucapan</button>
+                                    <textarea id="pesan-tamu" class="input-element font-klasik mt-10" rows="3" placeholder="Tulis Ucapan & Doa Terbaikmu" required></textarea>
+                                    <button type="button" class="btn-submit-gold font-klasik mt-15" onclick="kirimUcapan()">KIRIM UCAPAN</button>
                                 </div>
-                                <div class="comments-list" id="ucapan-list"></div>
+                                <div class="comments-scroller" id="ucapan-list"></div>
                             </div>
                         </div>
                     </section>
 
-                    <!-- SECTION CLOSING (TERIMA KASIH) -->
-                    <footer class="footer-closing pt-20 pb-50">
-                        <div class="section-content text-center">
-                            <div class="footer-arch-photo">
-                                <img src="./asset/bg2.jpeg" alt="Okik & Nurul">
-                            </div>
-                            <p class="text-salam font-body text-slate mt-30" id="txt-terimakasih"></p>
-                            <h1 class="couple-names-serif text-blue mt-20">Okik & Nurul</h1>
-                            <p class="font-serif text-slate mt-10" style="letter-spacing:1px; font-weight:600;" id="txt-salam-tutup"></p>
-                        </div>
-                    </footer>
+                    <!-- LAYER 9: CLOSING FINALE (SLATE BLUE CARD STYLE MATCHED 100% TO SCREENSHOT) -->
+                      <!-- LAYER 9: CLOSING FINALE (Background cover.png Murni) -->
+<footer class="footer-closing-lux dyn-anim fade-up mt-40">
+    <div class="section-content text-center">
+        <!-- Kubah Frame Minimalis -->
+        <div class="footer-arch-gold-frame">
+            <img src="./asset/bg2.jpeg" alt="Okik & Nurul Penutup">
+        </div>
+        
+        <!-- Teks diubah menggunakan text-slate agar kontras dengan cover.png -->
+        <!-- Hapus 'text-slate' dan tambahkan style="color: black;" untuk teks hitam -->
+<p class="text-salam font-klasik mt-30" style="color: black;" id="txt-terimakasih"></p>
+
+<!-- Ganti 'text-slate' menjadi 'text-gold-calm' untuk nama warna emas -->
+<h1 class="couple-names-footer font-latin text-gold-calm mt-15">Okik & Nurul</h1>
+
+<!-- Sama, hapus 'text-slate' dan tambahkan style="color: black;" -->
+<p class="font-klasik mt-15 uppercase-track" style="color: black;" id="txt-salam-tutup"></p>
+    </div>
+</footer>
                 </div>
 
             </div>
         </main>
 
-        <!-- MUSIC CONTROLS -->
+        <!-- FLOATING BACKSOUND CONTROL -->
         <audio id="bg-music" loop><source src="./asset/lagu.MP3" type="audio/mpeg"></audio>
-        <button id="btn-music-toggle" onclick="toggleMusic()"><i class="fa-solid fa-compact-disc"></i></button>
+        <button id="btn-music-toggle" onclick="toggleMusic()"><i class="fa-solid fa-music"></i></button>
 
     </div>
 
-    <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
