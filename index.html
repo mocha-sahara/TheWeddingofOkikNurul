@@ -3,49 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title id="page-title">Undangan Pernikahan</title>
+    <title id="page-title">Undangan Pernikahan Okik & Nurul</title>
     
-    <!-- Google Fonts Premium: Cormorant Garamond, Montserrat, Great Vibes -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="style.css">
-    <script src="data.js"></script>
 </head>
 <body>
 
-    <!-- Desktop Background -->
     <div class="desktop-bg-layer"></div>
 
-    <!-- APP WRAPPER (MAX 480PX) -->
     <div id="app-container">
 
-        <!-- BACKGROUND VIDEO MOTION -->
+        <!-- LAYER VIDEO INTRO (Tetap di belakang, tidak ikut scroll) -->
         <div class="fixed-video-bg">
             <video id="intro-video" muted loop playsinline preload="auto">
                 <source src="./asset/motion.mp4" type="video/mp4">
             </video>
         </div>
 
-        <!-- ==========================================
-             1. COVER AWAL
-             ========================================== -->
+        <!-- 1. COVER SCREEN -->
         <div id="cover-screen">
-            <div class="cover-bg" style="background-image: url('./asset/cover.png');"></div>
-            <div class="cover-overlay-gradient"></div>
-            
+            <div class="cover-bg"></div>
             <div class="cover-content">
                 <div class="cover-top animate-fade-down">
-                    <p class="title-wedding">The Wedding Of</p>
-                    <h1 class="couple-names" id="cover-names">Pria & Wanita</h1>
-                    
-                    <div class="cover-initials">
-    <h1 class="initials-font">O | N</h1>
-    <p class="title-wedding mt-10">THE WEDDING OF</p>
-    <h2 class="couple-names-cover mt-5">Okik & Nurul</h2>
-</div>
+                    <div class="initials-box">
+                        <span class="initial-text">O</span>
+                        <div class="vertical-line"></div>
+                        <span class="initial-text">N</span>
+                    </div>
+                    <p class="title-wedding-sub mt-20">The Wedding of</p>
+                    <h1 class="couple-names-serif">Okik & Nurul</h1>
                 </div>
 
                 <div class="cover-bottom animate-fade-up">
@@ -53,183 +45,194 @@
                         <p class="kepada">Kepada Yth. Bapak/Ibu/Saudara/i</p>
                         <h2 id="guest-name">Nama Tamu</h2>
                         <button id="btn-buka" onclick="bukaUndangan()">
-                            <i class="fa-solid fa-envelope-open"></i> BUKA UNDANGAN
+                            <i class="fa-regular fa-envelope"></i> BUKA UNDANGAN
                         </button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- ==========================================
-             2. KONTEN UTAMA
-             ========================================== -->
         <main id="main-content" style="display: none; opacity: 0;">
             
-            <!-- Hero Section (Teks di dalam Bubble Video) -->
-            <section class="hero-section">
-                <!-- Teks ini muncul BERGANTIAN setelah delay 7 Detik -->
+            <!-- 2. STICKY HERO TEXT (Menetap di atas video) -->
+            <section class="hero-text-fixed">
                 <div id="hero-text-bubble" class="hidden-hero">
-                    <p class="the-wedding animate-stagger seq-1">The Wedding Of</p>
-                    <h1 class="couple-names-hero font-cursive animate-stagger seq-2" id="hero-pria">Pria</h1>
-                    <h1 class="dan animate-stagger seq-3">&</h1>
-                    <h1 class="couple-names-hero font-cursive animate-stagger seq-4" id="hero-wanita">Wanita</h1>
-                    <p class="tanggal-hero animate-stagger seq-5" id="hero-date">Tanggal</p>
+                    <p class="the-wedding-sub-hero animate-stagger seq-1">The Wedding Of</p>
+                    <h1 class="couple-names-hero font-serif animate-stagger seq-2" id="hero-pria">Okik</h1>
+                    <h1 class="ampersand-hero font-serif animate-stagger seq-3">&</h1>
+                    <h1 class="couple-names-hero font-serif animate-stagger seq-4" id="hero-wanita">Nurul</h1>
+                    <p class="tanggal-hero animate-stagger seq-5">02 . 08 . 2026</p>
                 </div>
             </section>
 
-            <!-- ISI UNDANGAN (Bergeser menutupi video) -->
+            <!-- 3. SOLID SCROLLING BODY -->
             <div class="solid-content-body">
                 
-                <!-- KUTIPAN -->
-                <section class="section-card animate-on-scroll fade-up">
-                    <div class="section-bg-pattern"></div>
-                    <img src="./asset/bunga.webp" class="ornament flower pos-tl anim-swing-l" alt="Bunga">
-                    <img src="./asset/bunga.webp" class="ornament flower pos-tr anim-swing-r" alt="Bunga">
+                <!-- WRAPPER BG1 (Untuk Kutipan & Profil) -->
+                <div class="bg1-wrapper">
+                    <!-- SECTION KUTIPAN (FLAT, TANPA CARD) -->
+                    <section class="section-quote relative">
+                        <img src="./asset/bunga.webp" class="bunga-corner pos-tl" alt="Bunga">
+                        <div class="section-content text-center">
+                            <div class="initials-box-small">
+                                <span>O</span><div class="vertical-line-small"></div><span>N</span>
+                            </div>
+                            <h2 class="cursive-title mt-25">We Found Love</h2>
+                            <p id="txt-kutipan" class="text-quote mt-25"></p>
+                            <p id="txt-sumber" class="font-body mt-15 text-sumber"></p>
+                        </div>
+                    </section>
 
-                    <div class="section-content">
-                        <h2 class="cursive-title text-gold">We Found Love</h2>
-                        <p id="txt-kutipan" class="text-quote font-serif mt-15"></p>
-                        <p id="txt-sumber" class="font-body mt-10 bold-text text-primary"></p>
+                    <!-- SECTION PROFIL (CARD COKLAT SEMI TRANSPARAN) -->
+                    <section class="section-profile">
+                        <div class="brown-glass-card">
+                            <h2 class="section-title-serif mb-20 text-blue">We Are Getting Married!</h2>
+                            <p class="text-salam font-body mb-30 text-blue">Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah semoga ridho-Mu tercurah mengiringi pernikahan kami:</p>
+                            
+                            <!-- Pria -->
+                            <div class="profile-block">
+                                <div class="oval-frame"><img id="foto-pria" src="" alt="Mempelai Pria"></div>
+                                <h3 class="nama-panggilan-serif">Okik</h3>
+                                <h4 id="nama-pria" class="nama-lengkap font-serif text-blue"></h4>
+                                <p id="ortu-pria" class="ortu-info font-body text-blue"></p>
+                                <a id="ig-pria" href="#" target="_blank" class="btn-slate-pill mt-10"><i class="fa-brands fa-instagram"></i> @mempelai</a>
+                            </div>
+                            
+                            <div class="divider-ampersand"><h1 class="ampersand-mid text-blue">&</h1></div>
+                            
+                            <!-- Wanita -->
+                            <div class="profile-block">
+                                <div class="oval-frame"><img id="foto-wanita" src="" alt="Mempelai Wanita"></div>
+                                <h3 class="nama-panggilan-serif">Nurul</h3>
+                                <h4 id="nama-wanita" class="nama-lengkap font-serif text-blue"></h4>
+                                <p id="ortu-wanita" class="ortu-info font-body text-blue"></p>
+                                <a id="ig-wanita" href="#" target="_blank" class="btn-slate-pill mt-10"><i class="fa-brands fa-instagram"></i> @mempelai</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                
+                <!-- FOTO FULL TENGAH -->
+                <section class="section-full-photo">
+                    <img src="./asset/bg2.jpeg" alt="Okik & Nurul">
+                    <img src="./asset/bunga.webp" class="bunga-corner pos-br invert-x" alt="Bunga">
+                </section>
+
+                <!-- SECTION GALERI -->
+                <section class="gallery-marquee-area pb-40" style="background-image: url('./asset/cover.png'); background-size: 350px;">
+                    <div class="text-center pt-30 pb-20"><h2 class="section-title-serif text-blue">Our Gallery</h2></div>
+                    <div class="slider-overflow-hidden">
+                        <div class="slider-track-marquee" id="galeri-track"></div>
                     </div>
                 </section>
 
-                <div class="divider animate-on-scroll zoom-in"><img src="./asset/pembatas.png" alt="pembatas"></div>
-
-                <!-- SALAM & PROFIL -->
-                <section class="section-card animate-on-scroll fade-up">
-                    <div class="section-bg-pattern"></div>
-                    <img src="./asset/coklat.png" class="ornament leaf pos-tl anim-float-l" alt="Daun">
-                    <img src="./asset/bunga.webp" class="ornament flower pos-br anim-swing-r" alt="Bunga">
-
-                    <div class="section-content">
-                        <p class="text-salam mt-10 mb-30 font-serif" id="txt-salam"></p>
-                        
-                        <div class="profile-card animate-on-scroll slide-right">
-                            <div class="circle-photo"><img id="foto-pria" src="" alt="Pria"></div>
-                            <h3 id="nama-pria" class="nama-mempelai font-serif text-primary">Pria</h3>
-                            <p id="ortu-pria" class="ortu font-body"></p>
-                            <a id="ig-pria" href="#" target="_blank" class="btn-ig font-body"><i class="fa-brands fa-instagram"></i> Instagram</a>
-                        </div>
-                        
-                        <div class="divider-dan animate-on-scroll zoom-in">
-                            <h1 class="dan-center font-cursive">&</h1>
-                        </div>
-                        
-                        <div class="profile-card animate-on-scroll slide-left">
-                            <div class="circle-photo"><img id="foto-wanita" src="" alt="Wanita"></div>
-                            <h3 id="nama-wanita" class="nama-mempelai font-serif text-primary">Wanita</h3>
-                            <p id="ortu-wanita" class="ortu font-body"></p>
-                            <a id="ig-wanita" href="#" target="_blank" class="btn-ig font-body"><i class="fa-brands fa-instagram"></i> Instagram</a>
-                        </div>
-                    </div>
-                </section>
-
-                <div class="divider animate-on-scroll zoom-in"><img src="./asset/pembatas.png" alt="pembatas"></div>
-
-                <!-- COUNTDOWN -->
-                <section class="section-card dark-card animate-on-scroll fade-up">
-                    <div class="section-bg-pattern dark-pattern"></div>
-                    <img src="./asset/coklat.png" class="ornament leaf pos-tr anim-float-r" alt="Daun">
-
-                    <div class="section-content">
-                        <h2 class="cursive-title text-white">Counting The Days</h2>
-                        <div class="countdown-grid mt-20">
+                <!-- SECTION COUNTDOWN -->
+                <section class="countdown-wrapper mt-30 padding-horizontal">
+                    <div class="section-content text-slate text-center">
+                        <h2 class="section-title-serif text-blue">Save The Date</h2>
+                        <div class="countdown-grid mt-25">
                             <div class="cd-box"><span id="cd-hari">00</span><p>Days</p></div>
                             <div class="cd-box"><span id="cd-jam">00</span><p>Hours</p></div>
                             <div class="cd-box"><span id="cd-menit">00</span><p>Minutes</p></div>
                             <div class="cd-box"><span id="cd-detik">00</span><p>Seconds</p></div>
                         </div>
+                        <button class="btn-slate-outline mt-30"><i class="fa-regular fa-bookmark"></i> Add to Calendar</button>
                     </div>
                 </section>
 
-                <div class="divider animate-on-scroll zoom-in"><img src="./asset/pembatas.png" alt="pembatas"></div>
-
-                <!-- ACARA -->
-                <div class="w-100 text-center mb-20 animate-on-scroll fade-up">
-                    <h2 class="section-title font-serif text-primary">Rangkaian Acara</h2>
-                </div>
-                <div id="acara-container" class="w-100">
-                    <!-- JS Acara -->
-                </div>
-
-                <div class="divider animate-on-scroll zoom-in"><img src="./asset/pembatas.png" alt="pembatas"></div>
-
-                <!-- GALERI -->
-                <section class="section-card animate-on-scroll fade-up">
-                    <div class="section-bg-pattern"></div>
-                    <img src="./asset/bunga.webp" class="ornament flower pos-tl anim-swing-l" alt="Bunga">
-
-                    <div class="section-content w-100">
-                        <h2 class="section-title font-serif text-primary">Our Gallery</h2>
-                        <div class="video-prewedding mt-15">
-                            <div class="play-btn-overlay"><i class="fa-solid fa-play"></i></div>
-                            <img id="thumb-galeri-cover" src="" onerror="this.src='https://via.placeholder.com/600x350'">
-                        </div>
-                        <div class="grid-gallery mt-15" id="galeri-grid"></div>
+                <!-- SECTION ACARA (BG KAWUNG & 2 KUBAH TERPISAH DGN EFEK 2 LAPIS) -->
+                <section class="section-acara-kawung" style="background-image: url('./asset/kawung.jpeg');">
+                    <div id="acara-list-inject" class="w-100 flex-column-center">
+                        <!-- Diinjeksi oleh JS murni menjadi dua card terpisah -->
                     </div>
                 </section>
 
-                <div class="divider animate-on-scroll zoom-in"><img src="./asset/pembatas.png" alt="pembatas"></div>
-
-                <!-- WEDDING GIFT -->
-                <section class="section-card animate-on-scroll fade-up">
-                    <div class="section-bg-pattern"></div>
-                    <img src="./asset/coklat.png" class="ornament leaf pos-bl anim-float-l" alt="Daun">
-
-                    <div class="section-content w-100">
-                        <h2 class="section-title font-serif text-primary">Wedding Gift</h2>
-                        <p class="text-body mt-10 mb-20" id="txt-pengantar-kado"></p>
-                        <div id="rekening-list" class="w-100"></div>
-                    </div>
-                </section>
-
-                <!-- RSVP -->
-                <section class="section-card animate-on-scroll fade-up">
-                    <div class="section-bg-pattern"></div>
-                    <div class="section-content w-100">
-                        <h2 class="section-title font-serif text-primary">Best Wishes</h2>
-                        <p class="text-body mt-10 mb-20">Sampaikan doa dan ucapan terbaik Anda</p>
-                        
-                        <div class="wishes-box">
-                            <div class="wishes-header font-serif"><i class="fa-solid fa-comments"></i> <span id="count-ucapan">0</span> Ucapan</div>
-                            <div class="wishes-form">
-                                <input type="text" id="nama-tamu" class="font-body" placeholder="Nama Anda" required>
-                                <select id="konfirmasi-hadir" class="font-body">
-                                    <option value="" disabled selected>Konfirmasi Kehadiran</option>
-                                    <option value="Hadir">Hadir</option>
-                                    <option value="Tidak Hadir">Tidak Hadir</option>
-                                </select>
-                                <textarea id="pesan-tamu" class="font-body" rows="3" placeholder="Tulis ucapan" required></textarea>
-                                <button class="btn-submit font-serif" onclick="kirimUcapan()">Kirim</button>
-                            </div>
-                            <div class="wishes-list" id="ucapan-list"></div>
-                        </div>
-                    </div>
-                </section>
-
-                <footer class="footer-sec animate-on-scroll fade-up">
-                <div class="section-bg-pattern"></div>
-                <div class="section-content">
-                    <div class="footer-photo"><img id="img-cover-footer" src="./asset/foto_cover.jpeg" alt="Footer"></div>
+                <!-- WRAPPER BAWAH (BACKGROUND COVER.PNG) -->
+                <div class="bottom-cover-wrapper" style="background-image: url('./asset/cover.png');">
                     
-                    <p id="txt-terimakasih" class="font-serif text-white mb-20" style="font-size: 1.1rem; line-height:1.6; z-index: 5; position: relative;"></p>
-                    <h1 class="couple-names-hero font-cursive text-white" id="footer-names" style="z-index: 5; position: relative;">Pria & Wanita</h1>
-                    <p class="mt-20 font-serif text-white bold-text" id="txt-salam-tutup" style="z-index: 5; position: relative;"></p>
+                    <!-- SECTION WEDDING GIFT -->
+                    <section class="section-gift pt-40 padding-horizontal">
+                        <div class="light-card text-center">
+                            <h2 class="section-title-serif mb-15 text-blue">Wedding Gift</h2>
+                            <p class="font-body text-small text-slate mb-20" id="txt-pengantar-kado"></p>
+                            <div id="rekening-list"></div>
+                        </div>
+                    </section>
 
-                    <div class="watermark mt-30" style="z-index: 5; position: relative;">
-                        
-                    </div>
+                    <!-- SECTION DOA & MENGUNDANG -->
+                    <section class="section-doa-mengundang mt-30 padding-horizontal">
+                        <div class="slate-card mb-20 text-center">
+                            <h2 class="section-title-serif text-white mb-20">Doa Untuk Pengantin</h2>
+                            <p class="arabic-font">بَارَكَ اللهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ</p>
+                            <p class="transliteration mt-15">"Barakallahu laka wa baraka 'alaika wa jama'a bainakuma fii khoir"</p>
+                            <p class="translation mt-15">“Mudah-mudahan Allah memberkahi engkau dalam segala hal (yang baik) dan mempersatukan kamu berdua dalam kebaikan”</p>
+                        </div>
+
+                        <div class="slate-card text-left">
+                            <h2 class="section-title-serif text-white text-center mb-20">Turut Mengundang</h2>
+                            <ul class="list-mengundang">
+                                <li>- Ibu Sri Wahyuni Anindita</li>
+                                <li>- Bapak Abdul Karim Syahputra, S.H.</li>
+                                <li>- Keluarga Besar Ibu Lina Marlina Putri</li>
+                                <li>- Bapak Bambang Santoso Prabowo, M.T.</li>
+                                <li>- Ibu Nurhayati Kusumawardani</li>
+                                <li>- Bapak Andi Pratama Nugroho</li>
+                                <li>- Ibu Nuraeni Fitriani, S.Pd.I.</li>
+                                <li>- Keluarga Besar Bapak Hasan Basri Syamsuddin</li>
+                                <li>- Bapak Mulyono Widjaja, M.M.</li>
+                                <li>- Ibu Aminah Zulkarnaini, S.Ag.</li>
+                                <li>- Keluarga Besar Ibu Maryam Azzahra</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- SECTION RSVP & KOMENTAR -->
+                    <section class="mt-30 padding-horizontal pb-40">
+                         <div class="slate-card text-center">
+                            <h2 class="section-title-serif text-white mb-5">RSVP & Wishes</h2>
+                            <p class="font-body text-white size-small mb-20" style="opacity:0.8;">Ucapan Selamat, Doa, & Konfirmasi Kehadiran</p>
+                            
+                            <div class="wishes-box">
+                                <div class="wishes-counter"><span id="count-ucapan">0</span> Ucapan</div>
+                                <div class="wishes-form">
+                                    <input type="text" id="nama-tamu" class="input-form" placeholder="Nama Lengkap" required>
+                                    <select id="konfirmasi-hadir" class="input-form mt-10">
+                                        <option value="" disabled selected>Konfirmasi Kehadiran</option>
+                                        <option value="Hadir">Hadir</option>
+                                        <option value="Masih Ragu">Masih Ragu</option>
+                                        <option value="Tidak Hadir">Tidak Hadir</option>
+                                    </select>
+                                    <textarea id="pesan-tamu" class="input-form mt-10" rows="3" placeholder="Tulis Ucapan & Doa" required></textarea>
+                                    <button type="button" class="btn-submit-white mt-10" onclick="kirimUcapan()">Kirim Ucapan</button>
+                                </div>
+                                <div class="comments-list" id="ucapan-list"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SECTION CLOSING (TERIMA KASIH) -->
+                    <footer class="footer-closing pt-20 pb-50">
+                        <div class="section-content text-center">
+                            <div class="footer-arch-photo">
+                                <img src="./asset/bg2.jpeg" alt="Okik & Nurul">
+                            </div>
+                            <p class="text-salam font-body text-slate mt-30" id="txt-terimakasih"></p>
+                            <h1 class="couple-names-serif text-blue mt-20">Okik & Nurul</h1>
+                            <p class="font-serif text-slate mt-10" style="letter-spacing:1px; font-weight:600;" id="txt-salam-tutup"></p>
+                        </div>
+                    </footer>
                 </div>
-            </footer>
 
             </div>
         </main>
 
-        <audio id="bg-music" loop><source src="./asset/lagu.MP3" type="audio/mpeg"></audio>
+        <!-- MUSIC CONTROLS -->
+        <audio id="bg-music" loop><source src="./asset/lagu.mp3" type="audio/mpeg"></audio>
         <button id="btn-music-toggle" onclick="toggleMusic()"><i class="fa-solid fa-compact-disc"></i></button>
 
     </div>
 
+    <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

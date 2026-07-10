@@ -1,18 +1,17 @@
 // ==========================================
 // FILE PUSAT DATA UNDANGAN DIGITAL
-// Tema: Biru Mewah & Elegan (Navy & Gold)
 // ==========================================
 
 const dataUndangan = {
     umum: {
         judulWeb: "The Wedding of Okik & Nurul",
         deskripsiWeb: "Undangan Pernikahan Okik & Nurul",
-        audioLatar: "https://the-wedding-of-okik-nurul.vercel.app/asset/lagu.MP3", 
+        audioLatar: "./asset/lagu.mp3", 
         putarOtomatis: true
     },
     kutipan: {
-        teks: "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang.",
-        sumber: "QS. Ar-Rum: 21"
+        teks: '"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."',
+        sumber: "- QS. Ar-Rum : 21 -"
     },
     mempelai: {
         pria: {
@@ -35,7 +34,7 @@ const dataUndangan = {
     acara: {
         akad: {
             namaAcara: "Akad Nikah",
-            hariTanggal: "Minggu, 02 Agustus 2026",
+            hariTanggal: "MINGGU\n02 AGUSTUS 2026",
             tanggalCountdown: "2026-08-02T08:00:00", 
             waktu: "08:00 WIB - 10:00 WIB",
             tempat: "Kediaman Mempelai Wanita",
@@ -44,7 +43,7 @@ const dataUndangan = {
         },
         resepsi: {
             namaAcara: "Resepsi Pernikahan",
-            hariTanggal: "Minggu, 02 Agustus 2026",
+            hariTanggal: "MINGGU\n02 AGUSTUS 2026",
             waktu: "11:00 WIB - Selesai",
             tempat: "Kediaman Mempelai Wanita",
             alamatLengkap: "Dsn. Balongrejo, Ds. Balonggebang, RT 30, RW 10, Kec. Gondang, Kab. Nganjuk",
