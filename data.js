@@ -52,7 +52,7 @@ const dataUndangan = {
     },
     galeri: [
         "./asset/bg2.jpeg", 
-        "./asset/bg3.jpeg", 
+        "./asset/bg4.jpeg", 
        
     ],
     hadiahDigital: {
