@@ -221,8 +221,15 @@ function runCountdownSystem(targetString) {
 // ==========================================
 
 // Format tanggal
-function formatDate(date) {
-    const d = new Date(date);
+// Format tanggal
+function formatDate(timestamp) {
+    // 1. Jika waktu dari server belum turun (saat baru saja diklik kirim)
+    if (!timestamp) return "Baru saja";
+    
+    // 2. Ubah format waktu khusus Firebase menjadi format waktu standar
+    const d = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
+    
+    // 3. Susun menjadi DD/MM/YYYY HH:MM
     return `${d.getDate().toString().padStart(2, '0')}/${(d.getMonth()+1).toString().padStart(2, '0')}/${d.getFullYear()} ${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`;
 }
 
