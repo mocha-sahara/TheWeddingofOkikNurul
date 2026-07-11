@@ -51,15 +51,14 @@ const dataUndangan = {
         }
     },
     galeri: [
-        "./asset/galeri1.jpg", 
-        "./asset/galeri2.jpg", 
-        "./asset/galeri3.jpg",
-        "./asset/galeri4.jpg"
+        "./asset/bg2.jpeg", 
+        "./asset/bg4.jpeg", 
+       
     ],
     hadiahDigital: {
         teksPengantar: "Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Jika memberi adalah ungkapan tanda kasih Anda, Anda dapat memberi kado secara cashless.",
         rekening: [
-            { bank: "BCA", atasNama: "Okik Aris Setiawan", nomorRekening: "1234567890" }
+            { bank: "MANDIRI", atasNama: "Okik Aris S", nomorRekening: "1780011469604" }
         ],
         kirimKado: {
             namaPenerima: "Nurul Dwi Indah",
