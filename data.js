@@ -6,7 +6,7 @@ const dataUndangan = {
     umum: {
         judulWeb: "The Wedding of Okik & Nurul",
         deskripsiWeb: "Undangan Pernikahan Okik & Nurul",
-        audioLatar: "./asset/lagu.MP3", 
+        audioLatar: "./asset/lagu.mp3", 
         putarOtomatis: true
     },
     kutipan: {
@@ -51,16 +51,20 @@ const dataUndangan = {
         }
     },
     galeri: [
-        "./asset/bg2.jpeg", 
-        "./asset/bg4.jpeg", 
-       
+        "./asset/galeri1.jpg", 
+        "./asset/galeri2.jpg", 
+        "./asset/galeri3.jpg",
+        "./asset/galeri4.jpg"
     ],
     hadiahDigital: {
         teksPengantar: "Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Jika memberi adalah ungkapan tanda kasih Anda, Anda dapat memberi kado secara cashless.",
         rekening: [
-            { bank: "BCA", atasNama: "Okik Aris Setiawan", nomorRekening: "1234567890" },
-            { bank: "Bank Mandiri", atasNama: "Nurul Dwi Indah", nomorRekening: "0987654321" }
-        ]
+            { bank: "BCA", atasNama: "Okik Aris Setiawan", nomorRekening: "1234567890" }
+        ],
+        kirimKado: {
+            namaPenerima: "Nurul Dwi Indah",
+            alamatLengkap: "Dsn. Balongrejo, Ds. Balonggebang, RT 30, RW 10, Kec. Gondang, Kab. Nganjuk"
+        }
     },
     penutup: {
         teksBawah: "Suatu kebahagiaan & kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i, berkenan hadir dan memberikan do'a restu kepada kami",

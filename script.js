@@ -1,6 +1,22 @@
 // ==========================================
-// CORE INTERACTION SCRIPT - ROYAL JAVANESE
+// CORE INTERACTION SCRIPT - ROYAL JAVANESE (FIREBASE INTEGRATED)
 // ==========================================
+
+// Inisialisasi Firebase Config
+const firebaseConfig = {
+    apiKey: "AIzaSyCngZv8J6EHnSzDL-Brpm5dLWAysaOgosY",
+    authDomain: "undangan-nurul.firebaseapp.com",
+    projectId: "undangan-nurul",
+    storageBucket: "undangan-nurul.firebasestorage.app",
+    messagingSenderId: "57189733311",
+    appId: "1:57189733311:web:32b44771425655878d070a"
+};
+
+// Initialize Firebase
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+// Koleksi database (tabel) untuk ucapan
+const ucapanCollection = db.collection("ucapan_tamu");
 
 function initData() {
     try {
@@ -26,7 +42,7 @@ function initData() {
         setText('hero-pria', d.mempelai.pria.namaPanggilan);
         setText('hero-wanita', d.mempelai.wanita.namaPanggilan);
 
-        // Injeksi Rangkaian Acara (Kubah Terpisah, 2 Lapis)
+        // Injeksi Rangkaian Acara
         const acaraList = document.getElementById('acara-list-inject');
         if (acaraList) {
             acaraList.innerHTML = ""; 
@@ -62,7 +78,7 @@ function initData() {
             });
         }
 
-        // Injeksi Galeri Marquee Double Loop Element
+        // Injeksi Galeri Marquee
         const track = document.getElementById('galeri-track');
         if(track && d.galeri.length > 0) {
             track.innerHTML = "";
@@ -72,11 +88,12 @@ function initData() {
             });
         }
 
-        // Injeksi Kado Cashless
+        // Injeksi Kado Cashless & Kirim Kado Fisik
         setText('txt-pengantar-kado', d.hadiahDigital.teksPengantar);
         const rekList = document.getElementById('rekening-list');
         if(rekList) {
             rekList.innerHTML = "";
+            // Rekening (hanya BCA)
             d.hadiahDigital.rekening.forEach((rek, i) => {
                 const id = `rek-${i}`;
                 rekList.innerHTML += `
@@ -87,6 +104,18 @@ function initData() {
                         <button class="btn-copy-action font-klasik" onclick="copyRekening('${id}', this)"><i class="fa-regular fa-copy"></i> Salin Rekening</button>
                     </div>`;
             });
+        }
+        
+        const kadoContainer = document.getElementById('kirim-kado-container');
+        if(kadoContainer && d.hadiahDigital.kirimKado) {
+            kadoContainer.innerHTML = `
+                <div class="rek-box-luxury mt-15">
+                    <strong class="bank-title font-klasik mb-5"><i class="fa-solid fa-gift"></i> Kirim Kado</strong>
+                    <span class="rek-holder-name font-klasik" style="font-weight:600; font-size:1.1rem; color:#222;">Penerima: ${d.hadiahDigital.kirimKado.namaPenerima}</span>
+                    <p id="alamat-kado" class="rek-holder-name font-klasik mt-5" style="line-height:1.5;">${d.hadiahDigital.kirimKado.alamatLengkap}</p>
+                    <button class="btn-copy-action font-klasik" onclick="copyRekening('alamat-kado', this)"><i class="fa-regular fa-copy"></i> Salin Alamat</button>
+                </div>
+            `;
         }
 
         // Injeksi Footer Penutup
@@ -187,33 +216,100 @@ function runCountdownSystem(targetString) {
     }, 1000);
 }
 
-let ucapanCount = 0;
-function kirimUcapan() {
-    const nama = document.getElementById('nama-tamu').value;
-    const hadir = document.getElementById('konfirmasi-hadir').value;
-    const pesan = document.getElementById('pesan-tamu').value;
-    if (!nama || !pesan || !hadir) { alert('Harap isi kelengkapan ucapan anda!'); return; }
+// ==========================================
+// FIREBASE FIRESTORE RSVP LOGIC
+// ==========================================
 
-    const container = document.getElementById('ucapan-list');
-    const d = new Date();
-    const dateStr = `${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}`;
-
-    const div = document.createElement('div');
-    div.className = 'ucapan-card-item';
-    div.innerHTML = `
-        <div class="user-name-title font-klasik">${nama} <span class="rsvp-badge font-klasik">${hadir}</span></div>
-        <p class="user-msg-text font-klasik mt-5">${pesan}</p>
-        <span class="meta-date mt-5">${dateStr}</span>
-    `;
-    
-    container.prepend(div);
-    ucapanCount++;
-    document.getElementById('count-ucapan').innerText = ucapanCount;
-    
-    document.getElementById('nama-tamu').value = ''; 
-    document.getElementById('pesan-tamu').value = '';
+// Format tanggal
+function formatDate(date) {
+    const d = new Date(date);
+    return `${d.getDate().toString().padStart(2, '0')}/${(d.getMonth()+1).toString().padStart(2, '0')}/${d.getFullYear()} ${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`;
 }
+
+// Fungsi Load Ucapan Realtime dari Firebase
+function loadUcapan() {
+    const container = document.getElementById('ucapan-list');
+    
+    // Dengarkan perubahan data di Firestore secara realtime, urutkan dari yang terbaru
+    ucapanCollection.orderBy("timestamp", "desc").onSnapshot((querySnapshot) => {
+        container.innerHTML = ""; // Bersihkan list
+        let count = 0;
+        
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+            count++;
+            
+            const div = document.createElement('div');
+            div.className = 'ucapan-card-item';
+            div.innerHTML = `
+                <div class="user-name-title font-klasik">${data.nama} <span class="rsvp-badge font-klasik">${data.kehadiran}</span></div>
+                <p class="user-msg-text font-klasik mt-5">${data.pesan}</p>
+                <span class="meta-date mt-5">${formatDate(data.timestamp)}</span>
+            `;
+            container.appendChild(div);
+        });
+        
+        document.getElementById('count-ucapan').innerText = count;
+        
+        if (count === 0) {
+            container.innerHTML = '<p class="font-klasik text-white mt-10 text-center" style="opacity:0.6; font-size:0.9rem;">Belum ada ucapan. Jadilah yang pertama!</p>';
+        }
+    }, (error) => {
+        console.error("Error fetching realtime data: ", error);
+        container.innerHTML = '<p class="font-klasik text-white mt-10 text-center" style="opacity:0.6; font-size:0.9rem;">Gagal memuat ucapan. Periksa koneksi.</p>';
+    });
+}
+
+// Fungsi Kirim Ucapan ke Firebase
+document.getElementById('rsvp-form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Mencegah reload halaman
+    
+    const namaInput = document.getElementById('nama-tamu');
+    const hadirInput = document.getElementById('konfirmasi-hadir');
+    const pesanInput = document.getElementById('pesan-tamu');
+    const btnSubmit = document.getElementById('btn-submit-ucapan');
+    
+    const nama = namaInput.value.trim();
+    const hadir = hadirInput.value;
+    const pesan = pesanInput.value.trim();
+    
+    if (!nama || !pesan || !hadir) { alert('Harap lengkapi form ucapan!'); return; }
+    
+    btnSubmit.innerText = "MENGIRIM...";
+    btnSubmit.disabled = true;
+
+    // Simpan ke Firestore
+    ucapanCollection.add({
+        nama: nama,
+        kehadiran: hadir,
+        pesan: pesan,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp() // Gunakan waktu server Firestore
+    })
+    .then(() => {
+        // Berhasil dikirim, form direset
+        namaInput.value = '';
+        hadirInput.value = '';
+        pesanInput.value = '';
+        
+        btnSubmit.innerText = "BERHASIL DIKIRIM!";
+        btnSubmit.style.backgroundColor = "#5cb85c"; // Hijau sukses
+        
+        setTimeout(() => {
+            btnSubmit.innerText = "KIRIM UCAPAN";
+            btnSubmit.style.backgroundColor = "var(--gold-calm)";
+            btnSubmit.disabled = false;
+        }, 3000);
+    })
+    .catch((error) => {
+        console.error("Error adding document: ", error);
+        alert("Terjadi kesalahan saat mengirim ucapan. Silakan coba lagi.");
+        btnSubmit.innerText = "KIRIM UCAPAN";
+        btnSubmit.disabled = false;
+    });
+});
 
 window.addEventListener('DOMContentLoaded', () => {
     initData();
+    // Panggil fungsi load ucapan saat halaman dimuat
+    loadUcapan();
 });
