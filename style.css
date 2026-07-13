@@ -82,12 +82,24 @@ body {
     position: relative; z-index: 10; height: 100%; width: 100%;
     display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 25px; text-align: center;
 }
+
 .cover-initials {
-    display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 4rem; line-height: 1; color: var(--slate-blue);
-    margin-top: -30px; /* Menyesuaikan agar secara keseluruhan isi naik */
+    display: flex; align-items: center; justify-content: center; gap: 12px; 
+    font-size: 3rem; /* Angka diperkecil dari 4rem agar inisial mengecil */
+    line-height: 1; color: var(--slate-blue);
+    margin-top: -30px;
 }
-.initial-divider { font-size: 3rem; opacity: 0.5; font-weight: 300; margin: 0 5px; color: var(--gold-calm); font-family: var(--font-klasik); }
-.title-wedding { font-size: 0.95rem; letter-spacing: 4px; text-transform: uppercase; color: var(--slate-dark); font-weight: 600; }
+
+.initial-divider { 
+    font-size: 2.2rem; /* Garis tengah ikut diperkecil menyesuaikan inisial */
+    opacity: 0.5; font-weight: 300; margin: 0 5px; color: var(--gold-calm); font-family: var(--font-klasik); 
+}
+
+.title-wedding { 
+    font-size: 0.95rem; letter-spacing: 4px; text-transform: uppercase; color: var(--slate-dark); font-weight: 600; 
+    margin-top: 15px !important; /* Jarak atas dikurangi agar posisinya naik */
+    margin-bottom: 20px; /* Jeda ruang di bawah teks sebelum nama mempelai */
+}
 .couple-names-cover { font-size: 4.2rem; color: var(--slate-blue); font-weight: normal; line-height: 1.1; }
 
 .guest-box-thin {
