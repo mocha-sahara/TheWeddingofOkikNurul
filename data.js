@@ -44,9 +44,9 @@ const dataUndangan = {
         resepsi: {
             namaAcara: "Resepsi Pernikahan",
             hariTanggal: "Minggu\n02 Agustus 2026",
-            waktu: "11:00 WIB - Selesai",
+            waktu: "13:00 WIB - 15:00 WIB",
             tempat: "Kediaman Mempelai Wanita",
-            alamatLengkap: "Dsn. Balongrejo, Ds. Balonggebang, RT 30, RW 10, Kec. Gondang, Kab. Nganjuk",
+            alamatLengkap: "Balongrejo - Balonggebang - Gondang - Nganjuk",
             linkGoogleMaps: "https://goo.gl/maps/1Dvg7RLgNhKyL9bs8?g_st=ac"
         }
     },
