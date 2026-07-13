@@ -20,7 +20,7 @@ const dataUndangan = {
             namaAyah: "Bpk. Heri Susanto",
             namaIbu: "Ibu Nanik",
             foto: "./asset/foto_pria.jpeg",
-            instagram: "https://instagram.com/nuristiana010" 
+            instagram: "https://instagram.com/Okik.aris" 
         },
         wanita: {
             namaLengkap: "Nurul Dwi Indah Istiana, S.M.",
