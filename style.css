@@ -242,8 +242,8 @@ body {
 .arch-inner-pattern-cover { position: absolute; top:0; left:0; width:100%; height:100%; background-image: url('./asset/cover.png'); background-size: contain; background-repeat: repeat; opacity: 0.12; z-index: 1; pointer-events: none; }
 .arch-main-content { position: relative; z-index: 2; }
 .icon-marriage-center { font-size: 2.2rem; color: var(--gold-calm); }
-.event-date { font-size: 2rem; font-family: 'Montserrat', sans-serif; font-weight: 900; color: var(--slate-dark); letter-spacing: 1.5px; line-height: 1.5; }
-.event-time { font-size: 1.5rem; font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--slate-dark); font-weight: 500; }
+.event-date { font-size: 1.4rem;  font-weight: 900; color: var(--slate-dark); letter-spacing: 1.5px; line-height: 1.5; }
+.event-time { font-size: 1rem; font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--slate-dark); font-weight: 500; }
 .horizontal-line-decor { display: flex; align-items: center; justify-content: center; gap: 12px; width: 75%; margin: 0 auto; color: var(--gold-calm); opacity: 0.7; }
 .horizontal-line-decor .thin-line { width: 40%; height: 1px; background-color: var(--gold-calm); }
 .venue-title { font-size: 1.4rem; font-weight: 600; color: var(--slate-dark); }
