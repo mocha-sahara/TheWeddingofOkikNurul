@@ -38,7 +38,7 @@ const dataUndangan = {
             tanggalCountdown: "2026-08-02T08:00:00", 
             waktu: "08:00 WIB - 10:00 WIB",
             tempat: "Kediaman Mempelai Wanita",
-            alamatLengkap: "Balongrejo RT30/RW10 - Balonggebang - Gondang - Nganjuk",
+            alamatLengkap: "Balongrejo RT30/RW10 <br> Balonggebang - Gondang - Nganjuk",
             linkGoogleMaps: "https://goo.gl/maps/1Dvg7RLgNhKyL9bs8?g_st=ac"
         },
         resepsi: {
